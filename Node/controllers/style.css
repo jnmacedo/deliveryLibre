@@ -1,0 +1,88 @@
+* { 
+	margin: 0; 
+	padding: 0; 
+	box-sizing: border-box; 
+}
+
+body { 
+	font: 13px Helvetica, Arial; 
+}
+
+form {  
+	padding: 3px; 
+	position: fixed; 
+	bottom: 0; 
+	width: 100%;
+}
+
+form input { 
+	border: 0;
+	padding: 10px; 
+	width: 100%; 
+	margin-right: 2.5%; 
+} 
+
+form button { 
+	width: 100%; 
+	background: rgb(130, 224, 255); 
+	border: none; 
+	padding: 10px;    
+}
+
+
+@media screen and (max-device-width:480px){
+	.mensaje{
+	white-space: nowrap;
+	word-wrap: break-word;
+	padding: 7px 4px 7px 4px;
+	border-radius: 20px;
+	width: 100%;
+	text-align: left;
+}
+
+.mensajeOdd{
+	white-space: nowrap;
+	word-wrap: break-word;
+	padding: 7px 4px 7px 4px;
+	width: 100%;
+	text-align: right;	
+	background-color: #90CAF9;
+	border-radius: 20px;
+}
+
+}
+
+.mensaje{
+	white-space: nowrap;
+	word-wrap: break-word;
+	padding: 7px 4px 7px 4px;
+	border-radius: 20px;
+	width: 100%;
+	text-align: left;
+}
+
+.mensajeOdd{
+	white-space: nowrap;
+	word-wrap: break-word;
+	padding: 7px 4px 7px 4px;
+	width: 100%;
+	text-align: right;	
+	background-color: #90CAF9;
+	border-radius: 20px;
+}
+
+
+/*#messages { 
+	list-style-type: none; 
+	margin: 0; 
+	padding: 5px 10px; 
+}
+
+#messages div { 
+	padding: 5px 10px; 
+}
+
+#messages div:nth-child(odd) { 
+	background: #eee; 
+} 
+*/

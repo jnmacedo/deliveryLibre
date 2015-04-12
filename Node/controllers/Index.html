@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Los del perro</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://deliverylibre.herokuapp.com/css">
+    <meta name="viewport" content="width=device-width,  maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+      <div class="clearfix">
+          <div id="messages" style="overflow-y: true; margin-bottom: 18%;"></div> 
+              
+      </div>
+      <div class="footer navbar-fixed-bottom">
+        <form action="">
+          <input id="m" autocomplete="off" autofocus/><button class="btn btn-warning">Enviar</button>
+        </form>
+      </div> 
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+    /**
+     * Funcion que captura las variables pasados por GET
+     * http://www.lawebdelprogramador.com/pagina.html?id=10&pos=3
+     * Devuelve un array de clave=>valor
+     */
+    function getVarsUrl(){
+        var url= location.search.replace("?", "");
+        var arrUrl = url.split("&");
+        var urlObj={};   
+        for(var i=0; i<arrUrl.length; i++){
+            var x= arrUrl[i].split("=");
+            urlObj[x[0]]=x[1]
+        }
+        return urlObj;
+    }
+
+    function socket(){
+      var nickname = getVarsUrl().nickname;
+      var compra = getVarsUrl().idcompra;
+      var i = 1;
+      var socket = io();
+      $('form').submit(function(){
+        socket.emit('msg client', nickname+": "+$('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      socket.on('msg server', function(msg){
+        var arrNick = msg.split(":");
+        var nick = arrNick[0];
+        var mensaje = "";
+        for(i=1;i<arrNick.length;i++){
+            if(arrNick[i]!=null && arrNick[i].trim()!=""){
+              mensaje = mensaje + arrNick[i];
+            }
+        }
+        if(nick==nickname){
+          //yo 
+          $('#messages').append($('<div class="bg-warning mensajeOdd ">').text(mensaje));
+          $('#messages').append($('<br>'));
+          document.body.scrollTop +=45 ;
+        }
+        else{
+          //el otro
+          $('#messages').append($('<div class="bg-warning mensaje">').text(msg));
+          $('#messages').append($('<br>'));
+          document.body.scrollTop +=45;
+        }
+      });
+
+    }
+    
+    window.onload = function()
+    {
+        socket()
+    }    
+    </script>
+  </body>
+</html>
