@@ -20,12 +20,13 @@ class ViewController: UIViewController,UIWebViewDelegate {
     var post:PostServices!
     var session:Session!
     var url:String?
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //button.hidden = true
+        button.hidden = true
         view.backgroundColor = UIColor.yellowColor()
         navigationController?.navigationBar.backgroundColor = UIColor.yellowColor()
         self.webView.delegate = self
@@ -72,36 +73,33 @@ class ViewController: UIViewController,UIWebViewDelegate {
 
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
-        var test = "https://deliverylibre.herokuapp.com/code"
+        var test = "https://holaperros2.herokuapp.com/code"
         var test2 = request.URL!.absoluteString?.componentsSeparatedByString("?")
         
         if test == test2?.first
         {
             service.Get(request.URL!.absoluteString!){
                 (reponse) in
-                var token = self.getToken(reponse["access_token"]! as! String)
-                var id = self.getId(reponse["user_id"]! as! Int)
-                var device = "La concha de tu madre tincho cuando melina sea grande va a ser mi novia.id"//UIDevice.currentDevice().identifierForVendor.UUIDString
+                var token = reponse["access_token"]! as! String
+                var id = reponse["user_id"]! as! Int
+                var device = UIDevice.currentDevice().identifierForVendor.UUIDString
+                println(request.URL?.absoluteString)
                 self.session = Session(id: id,token: token, device: device)
+                let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                delegate.token = self.service.settings.convBuyer + "?token=\(token)"
                 self.post = PostServices()
                 self.post.addUserPostRequest(self.service.settings.addUser, usuario: self.session)
             }
             webView.removeFromSuperview()
+            button.hidden = false
             return false
         }
         else
         {
             return true
         }
+        
+        
     }
-
-    override func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject) -> Bool {
-        return true
-    }
-    
-    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
-    
-    }
-    
 }
 

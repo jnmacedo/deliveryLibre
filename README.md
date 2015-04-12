@@ -1,2 +1,0 @@
-# deliveryLibre
-Aplicacion Meli Hackathon 

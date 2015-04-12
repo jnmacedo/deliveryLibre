@@ -11,8 +11,14 @@ import Foundation
 import Foundation
 
 class Settings{
-    let inicio = "https://deliverylibre.herokuapp.com/inicio"
-    let addUser = "https://deliverylibre.herokuapp.com/addUser"
-    let convRecent = "https://deliverylibre.herokuapp.com/convRecent"
-    let convSeller = "https://deliverylibre.herokuapp.com/convSeller"
+    var inicio = "https://holaperros2.herokuapp.com/inicio"
+    var addUser = "https://deliverylibre.herokuapp.com/addUser"
+    var convRecent = "https://deliverylibre.herokuapp.com/convRecent"
+    var convSeller = "https://deliverylibre.herokuapp.com/convSeller"
+    var convBuyer = "http://deliverylibre.herokuapp.com/convBuyer"
 }
+
+struct structTest {
+    var convBuyer:String?
+}
+
