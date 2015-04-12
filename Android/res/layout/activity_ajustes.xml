@@ -68,11 +68,11 @@
 
     <LinearLayout
         android:id="@+id/lineainferior"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_above="@+id/relativeLayout1"
-        android:background="@color/linea" >
+        android:background="@color/linea"
+        android:orientation="vertical" >
     </LinearLayout>
 
     <RelativeLayout
@@ -92,18 +92,18 @@
             android:layout_centerHorizontal="true"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
-            android:text="Ajustes"
+            android:text="Acerca de"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/darkgrey"
             android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/lineasuperior"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_below="@+id/ajustesTitle"
-            android:background="@color/linea" >
+            android:background="@color/linea"
+            android:orientation="vertical" >
         </LinearLayout>
 
         <ScrollView
@@ -119,6 +119,85 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
+            
+
+            <TextView
+                android:id="@+id/Diego"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:text="Diego Maidana"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/darkgrey"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descDiego"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Diego"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:text="Estudiante y desarrollador, 23 años. En el proyecto del Hackathon encargado de la aplicacion de Android"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/darkgrey"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Martin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descDiego"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:text="Martin Varela"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/darkgrey"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descMartin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Martin"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:text="Estudiante y desarrollador, 22 años. En el proyecto del Hackathon encargado del backend con Node js"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/darkgrey"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Damian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descMartin"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:text="Damian Pintos"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/darkgrey"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descDamian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Damian"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:text="Estudiante y desarrollador, 24 años. En el proyecto del Hackathon encargado de la aplicacion de iOS"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/darkgrey"
+                android:textStyle="bold" />
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

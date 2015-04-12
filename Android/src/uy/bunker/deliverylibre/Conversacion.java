@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -11,6 +12,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 public class Conversacion extends Activity {
 	
@@ -59,13 +61,26 @@ public class Conversacion extends Activity {
 		String buyer = prefs.getString("buyer", "");
 		String seller = prefs.getString("seller", "");
 		String type = prefs.getString("type", "");
+		
+		String product = prefs.getString("producto", "");
 		String envio="";
-		if(type=="b"){
+		TextView producto = (TextView) findViewById(R.id.producto);
+		TextView nickname = (TextView) findViewById(R.id.nickname);
+		producto.setText(product);
+		if(type.equals("buyer")){
 			envio = buyer;
+			Log.i("prueba", envio);
+			nickname.setText(envio);
 		}
-		else if(type=="s"){
+		else if(type.equals("seller")){
 			envio = seller;
+			Log.i("prueba", envio);
+			nickname.setText(envio);
 		}
+		
+		
+		
+		
 		
 		wbConversacion.loadUrl("http://deliverylibre.herokuapp.com/chat?nickname="+envio+"&idcompra="+id_compra);
 	}
